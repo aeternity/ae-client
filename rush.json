@@ -324,6 +324,10 @@
       packageName: "ae-client-playground",
       projectFolder: "aepps/ae-client-playground"
     },
+    {
+      packageName: "ae-node-rest-client",
+      projectFolder: "libs/ae-node-rest-client"
+    },
     // {
     //   /**
     //    * The NPM package name of the project (must match package.json)
