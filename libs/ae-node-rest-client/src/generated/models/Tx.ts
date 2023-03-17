@@ -31,39 +31,6 @@ import type { UInt32 } from './UInt32';
 
 export type Tx = ({
     version: UInt32;
-    type: Tx.type;
+    type: 'SpendTx' | 'ChannelCreateTx' | 'ChannelDepositTx' | 'ChannelWithdrawTx' | 'ChannelForceProgressTx' | 'ChannelCloseMutualTx' | 'ChannelCloseSoloTx' | 'ChannelSlashTx' | 'ChannelSettleTx' | 'ChannelSnapshotSoloTx' | 'ChannelSetDelegatesTx' | 'OracleRegisterTx' | 'OracleExtendTx' | 'OracleQueryTx' | 'OracleRespondTx' | 'NamePreclaimTx' | 'NameClaimTx' | 'NameUpdateTx' | 'NameTransferTx' | 'NameRevokeTx' | 'ContractCreateTx' | 'ContractCallTx' | 'GAAttachTx' | 'GAMetaTx' | 'PayingForTx';
 } & (SpendTx | ChannelCreateTx | ChannelDepositTx | ChannelWithdrawTx | ChannelForceProgressTx | ChannelCloseMutualTx | ChannelCloseSoloTx | ChannelSlashTx | ChannelSettleTx | ChannelSnapshotSoloTx | ChannelSetDelegatesTx | OracleRegisterTx | OracleExtendTx | OracleQueryTx | OracleRespondTx | NamePreclaimTx | NameClaimTx | NameUpdateTx | NameTransferTx | NameRevokeTx | ContractCreateTx | ContractCallTx | GAAttachTx | GAMetaTx | PayingForTx));
-
-export namespace Tx {
-
-    export enum type {
-        SPEND_TX = 'SpendTx',
-        CHANNEL_CREATE_TX = 'ChannelCreateTx',
-        CHANNEL_DEPOSIT_TX = 'ChannelDepositTx',
-        CHANNEL_WITHDRAW_TX = 'ChannelWithdrawTx',
-        CHANNEL_FORCE_PROGRESS_TX = 'ChannelForceProgressTx',
-        CHANNEL_CLOSE_MUTUAL_TX = 'ChannelCloseMutualTx',
-        CHANNEL_CLOSE_SOLO_TX = 'ChannelCloseSoloTx',
-        CHANNEL_SLASH_TX = 'ChannelSlashTx',
-        CHANNEL_SETTLE_TX = 'ChannelSettleTx',
-        CHANNEL_SNAPSHOT_SOLO_TX = 'ChannelSnapshotSoloTx',
-        CHANNEL_SET_DELEGATES_TX = 'ChannelSetDelegatesTx',
-        ORACLE_REGISTER_TX = 'OracleRegisterTx',
-        ORACLE_EXTEND_TX = 'OracleExtendTx',
-        ORACLE_QUERY_TX = 'OracleQueryTx',
-        ORACLE_RESPOND_TX = 'OracleRespondTx',
-        NAME_PRECLAIM_TX = 'NamePreclaimTx',
-        NAME_CLAIM_TX = 'NameClaimTx',
-        NAME_UPDATE_TX = 'NameUpdateTx',
-        NAME_TRANSFER_TX = 'NameTransferTx',
-        NAME_REVOKE_TX = 'NameRevokeTx',
-        CONTRACT_CREATE_TX = 'ContractCreateTx',
-        CONTRACT_CALL_TX = 'ContractCallTx',
-        GAATTACH_TX = 'GAAttachTx',
-        GAMETA_TX = 'GAMetaTx',
-        PAYING_FOR_TX = 'PayingForTx',
-    }
-
-
-}
 

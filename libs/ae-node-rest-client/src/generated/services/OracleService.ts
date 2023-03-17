@@ -18,15 +18,22 @@ export class OracleService {
 
     /**
      * Get an oracle by public key
-     * @param pubkey The public key of the oracle
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns RegisteredOracle Successful operation
      * @throws ApiError
      */
-    public static getOracleByPubkey(
+    public static getOracleByPubkey({
+        pubkey,
+        intAsString = false,
+    }: {
+        /**
+         * The public key of the oracle
+         */
         pubkey: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<RegisteredOracle> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<RegisteredOracle> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/oracles/{pubkey}',
@@ -45,21 +52,37 @@ export class OracleService {
 
     /**
      * Get oracle queries by public key
-     * @param pubkey The public key of the oracle
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
-     * @param from Last query id in previous page
-     * @param limit Max number of oracle queries
-     * @param type The type of a query: open, closed or all
      * @returns OracleQueries Successful operation
      * @throws ApiError
      */
-    public static getOracleQueriesByPubkey(
+    public static getOracleQueriesByPubkey({
+        pubkey,
+        intAsString = false,
+        from,
+        limit = 20,
+        type = 'all',
+    }: {
+        /**
+         * The public key of the oracle
+         */
         pubkey: string,
-        intAsString: boolean = false,
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+        /**
+         * Last query id in previous page
+         */
         from?: string,
-        limit: number = 20,
-        type: 'open' | 'closed' | 'all' = 'all',
-    ): CancelablePromise<OracleQueries> {
+        /**
+         * Max number of oracle queries
+         */
+        limit?: number,
+        /**
+         * The type of a query: open, closed or all
+         */
+        type?: 'open' | 'closed' | 'all',
+    }): CancelablePromise<OracleQueries> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/oracles/{pubkey}/queries',
@@ -81,17 +104,27 @@ export class OracleService {
 
     /**
      * Get an oracle query by public key and query ID
-     * @param pubkey The public key of the oracle
-     * @param queryId The ID of the query
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns OracleQuery Successful operation
      * @throws ApiError
      */
-    public static getOracleQueryByPubkeyAndQueryId(
+    public static getOracleQueryByPubkeyAndQueryId({
+        pubkey,
+        queryId,
+        intAsString = false,
+    }: {
+        /**
+         * The public key of the oracle
+         */
         pubkey: string,
+        /**
+         * The ID of the query
+         */
         queryId: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<OracleQuery> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<OracleQuery> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/oracles/{pubkey}/queries/{query-id}',
@@ -111,15 +144,19 @@ export class OracleService {
 
     /**
      * Get a oracle_register transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postOracleRegister(
+    public static postOracleRegister({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: OracleRegisterTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/oracles/register',
@@ -137,15 +174,19 @@ export class OracleService {
 
     /**
      * Get an oracle_extend transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postOracleExtend(
+    public static postOracleExtend({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: OracleExtendTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/oracles/extend',
@@ -163,15 +204,19 @@ export class OracleService {
 
     /**
      * Get an oracle_query transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postOracleQuery(
+    public static postOracleQuery({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: OracleQueryTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/oracles/query',
@@ -189,15 +234,19 @@ export class OracleService {
 
     /**
      * Get an oracle_response transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postOracleRespond(
+    public static postOracleRespond({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: OracleRespondTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/oracles/respond',

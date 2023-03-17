@@ -37,13 +37,17 @@ export class ExternalService {
 
     /**
      * Get the top header (either key or micro block)
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Header Successful operation
      * @throws ApiError
      */
-    public static getTopHeader(
-        intAsString: boolean = false,
-    ): CancelablePromise<Header> {
+    public static getTopHeader({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Header> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/headers/top',
@@ -58,13 +62,17 @@ export class ExternalService {
 
     /**
      * Get the current key block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns KeyBlock Successful operation
      * @throws ApiError
      */
-    public static getCurrentKeyBlock(
-        intAsString: boolean = false,
-    ): CancelablePromise<KeyBlock> {
+    public static getCurrentKeyBlock({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<KeyBlock> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/key-blocks/current',
@@ -79,13 +87,17 @@ export class ExternalService {
 
     /**
      * Get the hash of the current key block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns HashResponse Successful operation
      * @throws ApiError
      */
-    public static getCurrentKeyBlockHash(
-        intAsString: boolean = false,
-    ): CancelablePromise<HashResponse> {
+    public static getCurrentKeyBlockHash({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<HashResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/key-blocks/current/hash',
@@ -100,13 +112,17 @@ export class ExternalService {
 
     /**
      * Get the height of the current key block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns HeightResponse Successful operation
      * @throws ApiError
      */
-    public static getCurrentKeyBlockHeight(
-        intAsString: boolean = false,
-    ): CancelablePromise<HeightResponse> {
+    public static getCurrentKeyBlockHeight({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<HeightResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/key-blocks/current/height',
@@ -121,13 +137,17 @@ export class ExternalService {
 
     /**
      * Get the pending key block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns KeyBlock Successful operation
      * @throws ApiError
      */
-    public static getPendingKeyBlock(
-        intAsString: boolean = false,
-    ): CancelablePromise<KeyBlock> {
+    public static getPendingKeyBlock({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<KeyBlock> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/key-blocks/pending',
@@ -143,15 +163,22 @@ export class ExternalService {
 
     /**
      * Get a key block by hash
-     * @param hash The hash of the block - either a keyblock or a microblock
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns KeyBlock Successful operation
      * @throws ApiError
      */
-    public static getKeyBlockByHash(
+    public static getKeyBlockByHash({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the block - either a keyblock or a microblock
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<KeyBlock> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<KeyBlock> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/key-blocks/hash/{hash}',
@@ -170,15 +197,22 @@ export class ExternalService {
 
     /**
      * Get a key block by height
-     * @param height The height
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns KeyBlock Successful operation
      * @throws ApiError
      */
-    public static getKeyBlockByHeight(
+    public static getKeyBlockByHeight({
+        height,
+        intAsString = false,
+    }: {
+        /**
+         * The height
+         */
         height: number,
-        intAsString: boolean = false,
-    ): CancelablePromise<KeyBlock> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<KeyBlock> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/key-blocks/height/{height}',
@@ -196,15 +230,22 @@ export class ExternalService {
 
     /**
      * Get a micro block header by hash
-     * @param hash The hash of the block - either a keyblock or a microblock
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns MicroBlockHeader Successful operation
      * @throws ApiError
      */
-    public static getMicroBlockHeaderByHash(
+    public static getMicroBlockHeaderByHash({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the block - either a keyblock or a microblock
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<MicroBlockHeader> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<MicroBlockHeader> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/micro-blocks/hash/{hash}/header',
@@ -223,15 +264,22 @@ export class ExternalService {
 
     /**
      * Get micro block transactions by hash
-     * @param hash The hash of the micro block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns SignedTxs Successful operation
      * @throws ApiError
      */
-    public static getMicroBlockTransactionsByHash(
+    public static getMicroBlockTransactionsByHash({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the micro block
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<SignedTxs> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<SignedTxs> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/micro-blocks/hash/{hash}/transactions',
@@ -250,17 +298,27 @@ export class ExternalService {
 
     /**
      * Get a micro block transaction by hash and index
-     * @param hash The hash of the micro block
-     * @param index The index of the transaction in a block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns SignedTx Successful operation
      * @throws ApiError
      */
-    public static getMicroBlockTransactionByHashAndIndex(
+    public static getMicroBlockTransactionByHashAndIndex({
+        hash,
+        index,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the micro block
+         */
         hash: string,
+        /**
+         * The index of the transaction in a block
+         */
         index: number,
-        intAsString: boolean = false,
-    ): CancelablePromise<SignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<SignedTx> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/micro-blocks/hash/{hash}/transactions/index/{index}',
@@ -280,15 +338,22 @@ export class ExternalService {
 
     /**
      * Get micro block transaction count by hash
-     * @param hash The hash of the micro block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns CountResponse Successful operation
      * @throws ApiError
      */
-    public static getMicroBlockTransactionsCountByHash(
+    public static getMicroBlockTransactionsCountByHash({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the micro block
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<CountResponse> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<CountResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/micro-blocks/hash/{hash}/transactions/count',
@@ -307,13 +372,17 @@ export class ExternalService {
 
     /**
      * Get the current generation
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Generation Successful operation
      * @throws ApiError
      */
-    public static getCurrentGeneration(
-        intAsString: boolean = false,
-    ): CancelablePromise<Generation> {
+    public static getCurrentGeneration({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Generation> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/generations/current',
@@ -328,15 +397,22 @@ export class ExternalService {
 
     /**
      * Get a generation by hash
-     * @param hash The hash of the key block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Generation Successful operation
      * @throws ApiError
      */
-    public static getGenerationByHash(
+    public static getGenerationByHash({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the key block
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<Generation> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Generation> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/generations/hash/{hash}',
@@ -355,15 +431,22 @@ export class ExternalService {
 
     /**
      * Get a generation by height
-     * @param height The height
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Generation Successful operation
      * @throws ApiError
      */
-    public static getGenerationByHeight(
+    public static getGenerationByHeight({
+        height,
+        intAsString = false,
+    }: {
+        /**
+         * The height
+         */
         height: number,
-        intAsString: boolean = false,
-    ): CancelablePromise<Generation> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Generation> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/generations/height/{height}',
@@ -381,15 +464,22 @@ export class ExternalService {
 
     /**
      * Get an account by public key
-     * @param pubkey The public key of the account
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Account Successful operation
      * @throws ApiError
      */
-    public static getAccountByPubkey(
+    public static getAccountByPubkey({
+        pubkey,
+        intAsString = false,
+    }: {
+        /**
+         * The public key of the account
+         */
         pubkey: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<Account> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Account> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/accounts/{pubkey}',
@@ -408,17 +498,27 @@ export class ExternalService {
 
     /**
      * Get an account by public key after the opening key block of the generation at height
-     * @param pubkey The public key of the account
-     * @param height The height
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Account Successful operation
      * @throws ApiError
      */
-    public static getAccountByPubkeyAndHeight(
+    public static getAccountByPubkeyAndHeight({
+        pubkey,
+        height,
+        intAsString = false,
+    }: {
+        /**
+         * The public key of the account
+         */
         pubkey: string,
+        /**
+         * The height
+         */
         height: number,
-        intAsString: boolean = false,
-    ): CancelablePromise<Account> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Account> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/accounts/{pubkey}/height/{height}',
@@ -438,17 +538,27 @@ export class ExternalService {
 
     /**
      * Get an account by public key after the block indicated by hash. Can be either a micro block or a keyblock hash
-     * @param pubkey The public key of the account
-     * @param hash The hash of the block - either a keyblock or a microblock
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Account Successful operation
      * @throws ApiError
      */
-    public static getAccountByPubkeyAndHash(
+    public static getAccountByPubkeyAndHash({
+        pubkey,
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The public key of the account
+         */
         pubkey: string,
+        /**
+         * The hash of the block - either a keyblock or a microblock
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<Account> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Account> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/accounts/{pubkey}/hash/{hash}',
@@ -468,15 +578,22 @@ export class ExternalService {
 
     /**
      * Get pending account transactions by public key
-     * @param pubkey The public key of the account
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns SignedTxs Successful operation
      * @throws ApiError
      */
-    public static getPendingAccountTransactionsByPubkey(
+    public static getPendingAccountTransactionsByPubkey({
+        pubkey,
+        intAsString = false,
+    }: {
+        /**
+         * The public key of the account
+         */
         pubkey: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<SignedTxs> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<SignedTxs> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/accounts/{pubkey}/transactions/pending',
@@ -495,17 +612,27 @@ export class ExternalService {
 
     /**
      * Get an account's next nonce; This is computed according to whatever is the current account nonce and what transactions are currently present in the transaction pool
-     * @param pubkey The public key of the account
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
-     * @param strategy What strategy to use in order to determine the next nonce: shall it check for continuity or return the largest nonce seen + 1. If you choose strategy max, then the greatest nonce seen in the account or currently in the transaction pool is incremented with 1 and returned. If you choose the strategy continuity, then transactions in the mempool are checked if there are gaps - missing nonces that prevent transactions with greater nonces to get included.
      * @returns NextNonceResponse Successful operation
      * @throws ApiError
      */
-    public static getAccountNextNonce(
+    public static getAccountNextNonce({
+        pubkey,
+        intAsString = false,
+        strategy = 'max',
+    }: {
+        /**
+         * The public key of the account
+         */
         pubkey: string,
-        intAsString: boolean = false,
-        strategy: 'max' | 'continuity' = 'max',
-    ): CancelablePromise<NextNonceResponse> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+        /**
+         * What strategy to use in order to determine the next nonce: shall it check for continuity or return the largest nonce seen + 1. If you choose strategy max, then the greatest nonce seen in the account or currently in the transaction pool is incremented with 1 and returned. If you choose the strategy continuity, then transactions in the mempool are checked if there are gaps - missing nonces that prevent transactions with greater nonces to get included.
+         */
+        strategy?: 'max' | 'continuity',
+    }): CancelablePromise<NextNonceResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/accounts/{pubkey}/next-nonce',
@@ -525,15 +652,22 @@ export class ExternalService {
 
     /**
      * Dry-run transactions on top of a given block. Supports all TXs except GAMetaTx, PayingForTx and OffchainTx. The maximum gas limit of all calls is capped. The maximum gas limit per request is a global node setting. Since DryRunCallReq object do not have a mandatory gas field, if not set a default value of 1000000 is being used instead.
-     * @param requestBody transactions
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns DryRunResults Dry-run result
      * @throws ApiError
      */
-    public static protectedDryRunTxs(
+    public static protectedDryRunTxs({
+        requestBody,
+        intAsString = false,
+    }: {
+        /**
+         * transactions
+         */
         requestBody: DryRunInput,
-        intAsString: boolean = false,
-    ): CancelablePromise<DryRunResults> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<DryRunResults> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/dry-run',
@@ -551,15 +685,22 @@ export class ExternalService {
 
     /**
      * Get a transaction by hash
-     * @param hash The hash of the transaction
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns SignedTx Successful operation
      * @throws ApiError
      */
-    public static getTransactionByHash(
+    public static getTransactionByHash({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the transaction
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<SignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<SignedTx> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/transactions/{hash}',
@@ -577,15 +718,22 @@ export class ExternalService {
     }
 
     /**
-     * @param hash The hash of the transaction
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns TxInfoObject Successful operation
      * @throws ApiError
      */
-    public static getTransactionInfoByHash(
+    public static getTransactionInfoByHash({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the transaction
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<TxInfoObject> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<TxInfoObject> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/transactions/{hash}/info',
@@ -604,15 +752,22 @@ export class ExternalService {
 
     /**
      * Post a new transaction
-     * @param requestBody The new transaction
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns PostTxResponse Successful operation
      * @throws ApiError
      */
-    public static postTransaction(
+    public static postTransaction({
+        requestBody,
+        intAsString = false,
+    }: {
+        /**
+         * The new transaction
+         */
         requestBody: EncodedTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<PostTxResponse> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<PostTxResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/transactions',
@@ -629,15 +784,22 @@ export class ExternalService {
 
     /**
      * Get a contract by pubkey
-     * @param pubkey Contract pubkey to get proof for
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns ContractObject Successful operation
      * @throws ApiError
      */
-    public static getContract(
+    public static getContract({
+        pubkey,
+        intAsString = false,
+    }: {
+        /**
+         * Contract pubkey to get proof for
+         */
         pubkey: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<ContractObject> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<ContractObject> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/contracts/{pubkey}',
@@ -656,15 +818,22 @@ export class ExternalService {
 
     /**
      * Get contract code by pubkey
-     * @param pubkey Contract pubkey to get proof for
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns ByteCode Contract code
      * @throws ApiError
      */
-    public static getContractCode(
+    public static getContractCode({
+        pubkey,
+        intAsString = false,
+    }: {
+        /**
+         * Contract pubkey to get proof for
+         */
         pubkey: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<ByteCode> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<ByteCode> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/contracts/{pubkey}/code',
@@ -683,15 +852,22 @@ export class ExternalService {
 
     /**
      * Get a proof of inclusion for a contract
-     * @param pubkey Contract pubkey to get proof for
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns PoI Successful operation
      * @throws ApiError
      */
-    public static getContractPoI(
+    public static getContractPoI({
+        pubkey,
+        intAsString = false,
+    }: {
+        /**
+         * Contract pubkey to get proof for
+         */
         pubkey: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<PoI> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<PoI> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/contracts/{pubkey}/poi',
@@ -710,15 +886,22 @@ export class ExternalService {
 
     /**
      * Get an oracle by public key
-     * @param pubkey The public key of the oracle
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns RegisteredOracle Successful operation
      * @throws ApiError
      */
-    public static getOracleByPubkey(
+    public static getOracleByPubkey({
+        pubkey,
+        intAsString = false,
+    }: {
+        /**
+         * The public key of the oracle
+         */
         pubkey: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<RegisteredOracle> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<RegisteredOracle> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/oracles/{pubkey}',
@@ -737,21 +920,37 @@ export class ExternalService {
 
     /**
      * Get oracle queries by public key
-     * @param pubkey The public key of the oracle
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
-     * @param from Last query id in previous page
-     * @param limit Max number of oracle queries
-     * @param type The type of a query: open, closed or all
      * @returns OracleQueries Successful operation
      * @throws ApiError
      */
-    public static getOracleQueriesByPubkey(
+    public static getOracleQueriesByPubkey({
+        pubkey,
+        intAsString = false,
+        from,
+        limit = 20,
+        type = 'all',
+    }: {
+        /**
+         * The public key of the oracle
+         */
         pubkey: string,
-        intAsString: boolean = false,
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+        /**
+         * Last query id in previous page
+         */
         from?: string,
-        limit: number = 20,
-        type: 'open' | 'closed' | 'all' = 'all',
-    ): CancelablePromise<OracleQueries> {
+        /**
+         * Max number of oracle queries
+         */
+        limit?: number,
+        /**
+         * The type of a query: open, closed or all
+         */
+        type?: 'open' | 'closed' | 'all',
+    }): CancelablePromise<OracleQueries> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/oracles/{pubkey}/queries',
@@ -773,17 +972,27 @@ export class ExternalService {
 
     /**
      * Get an oracle query by public key and query ID
-     * @param pubkey The public key of the oracle
-     * @param queryId The ID of the query
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns OracleQuery Successful operation
      * @throws ApiError
      */
-    public static getOracleQueryByPubkeyAndQueryId(
+    public static getOracleQueryByPubkeyAndQueryId({
+        pubkey,
+        queryId,
+        intAsString = false,
+    }: {
+        /**
+         * The public key of the oracle
+         */
         pubkey: string,
+        /**
+         * The ID of the query
+         */
         queryId: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<OracleQuery> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<OracleQuery> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/oracles/{pubkey}/queries/{query-id}',
@@ -803,15 +1012,22 @@ export class ExternalService {
 
     /**
      * Get name entry from naming system
-     * @param name The name key of the name entry
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns NameEntry Successful operation
      * @throws ApiError
      */
-    public static getNameEntryByName(
+    public static getNameEntryByName({
+        name,
+        intAsString = false,
+    }: {
+        /**
+         * The name key of the name entry
+         */
         name: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<NameEntry> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<NameEntry> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/names/{name}',
@@ -830,15 +1046,22 @@ export class ExternalService {
 
     /**
      * Get channel by public key
-     * @param pubkey The pubkey of the channel
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Channel Successful operation
      * @throws ApiError
      */
-    public static getChannelByPubkey(
+    public static getChannelByPubkey({
+        pubkey,
+        intAsString = false,
+    }: {
+        /**
+         * The pubkey of the channel
+         */
         pubkey: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<Channel> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Channel> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/channels/{pubkey}',
@@ -857,13 +1080,17 @@ export class ExternalService {
 
     /**
      * Get peer public key
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns PeerPubKey Successful operation
      * @throws ApiError
      */
-    public static getPeerPubkey(
-        intAsString: boolean = false,
-    ): CancelablePromise<PeerPubKey> {
+    public static getPeerPubkey({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<PeerPubKey> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/peers/pubkey',
@@ -875,13 +1102,17 @@ export class ExternalService {
 
     /**
      * Get the status of a node
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Status Successful operation
      * @throws ApiError
      */
-    public static getStatus(
-        intAsString: boolean = false,
-    ): CancelablePromise<Status> {
+    public static getStatus({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Status> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/status',
@@ -893,13 +1124,17 @@ export class ExternalService {
 
     /**
      * Get oldest keyblock hashes counting from genesis including orphans
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns EncodedHash Successful operation
      * @throws ApiError
      */
-    public static getChainEnds(
-        intAsString: boolean = false,
-    ): CancelablePromise<Array<EncodedHash>> {
+    public static getChainEnds({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Array<EncodedHash>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/status/chain-ends',

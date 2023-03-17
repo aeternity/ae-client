@@ -13,15 +13,22 @@ export class AccountService {
 
     /**
      * Get an account by public key
-     * @param pubkey The public key of the account
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Account Successful operation
      * @throws ApiError
      */
-    public static getAccountByPubkey(
+    public static getAccountByPubkey({
+        pubkey,
+        intAsString = false,
+    }: {
+        /**
+         * The public key of the account
+         */
         pubkey: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<Account> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Account> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/accounts/{pubkey}',
@@ -40,17 +47,27 @@ export class AccountService {
 
     /**
      * Get an account by public key after the opening key block of the generation at height
-     * @param pubkey The public key of the account
-     * @param height The height
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Account Successful operation
      * @throws ApiError
      */
-    public static getAccountByPubkeyAndHeight(
+    public static getAccountByPubkeyAndHeight({
+        pubkey,
+        height,
+        intAsString = false,
+    }: {
+        /**
+         * The public key of the account
+         */
         pubkey: string,
+        /**
+         * The height
+         */
         height: number,
-        intAsString: boolean = false,
-    ): CancelablePromise<Account> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Account> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/accounts/{pubkey}/height/{height}',
@@ -70,17 +87,27 @@ export class AccountService {
 
     /**
      * Get an account by public key after the block indicated by hash. Can be either a micro block or a keyblock hash
-     * @param pubkey The public key of the account
-     * @param hash The hash of the block - either a keyblock or a microblock
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Account Successful operation
      * @throws ApiError
      */
-    public static getAccountByPubkeyAndHash(
+    public static getAccountByPubkeyAndHash({
+        pubkey,
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The public key of the account
+         */
         pubkey: string,
+        /**
+         * The hash of the block - either a keyblock or a microblock
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<Account> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Account> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/accounts/{pubkey}/hash/{hash}',
@@ -100,15 +127,22 @@ export class AccountService {
 
     /**
      * Get pending account transactions by public key
-     * @param pubkey The public key of the account
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns SignedTxs Successful operation
      * @throws ApiError
      */
-    public static getPendingAccountTransactionsByPubkey(
+    public static getPendingAccountTransactionsByPubkey({
+        pubkey,
+        intAsString = false,
+    }: {
+        /**
+         * The public key of the account
+         */
         pubkey: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<SignedTxs> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<SignedTxs> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/accounts/{pubkey}/transactions/pending',
@@ -127,17 +161,27 @@ export class AccountService {
 
     /**
      * Get an account's next nonce; This is computed according to whatever is the current account nonce and what transactions are currently present in the transaction pool
-     * @param pubkey The public key of the account
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
-     * @param strategy What strategy to use in order to determine the next nonce: shall it check for continuity or return the largest nonce seen + 1. If you choose strategy max, then the greatest nonce seen in the account or currently in the transaction pool is incremented with 1 and returned. If you choose the strategy continuity, then transactions in the mempool are checked if there are gaps - missing nonces that prevent transactions with greater nonces to get included.
      * @returns NextNonceResponse Successful operation
      * @throws ApiError
      */
-    public static getAccountNextNonce(
+    public static getAccountNextNonce({
+        pubkey,
+        intAsString = false,
+        strategy = 'max',
+    }: {
+        /**
+         * The public key of the account
+         */
         pubkey: string,
-        intAsString: boolean = false,
-        strategy: 'max' | 'continuity' = 'max',
-    ): CancelablePromise<NextNonceResponse> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+        /**
+         * What strategy to use in order to determine the next nonce: shall it check for continuity or return the largest nonce seen + 1. If you choose strategy max, then the greatest nonce seen in the account or currently in the transaction pool is incremented with 1 and returned. If you choose the strategy continuity, then transactions in the mempool are checked if there are gaps - missing nonces that prevent transactions with greater nonces to get included.
+         */
+        strategy?: 'max' | 'continuity',
+    }): CancelablePromise<NextNonceResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/accounts/{pubkey}/next-nonce',

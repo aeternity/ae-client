@@ -18,15 +18,22 @@ export class TransactionService {
 
     /**
      * Get a transaction by hash
-     * @param hash The hash of the transaction
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns SignedTx Successful operation
      * @throws ApiError
      */
-    public static getTransactionByHash(
+    public static getTransactionByHash({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the transaction
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<SignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<SignedTx> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/transactions/{hash}',
@@ -44,15 +51,22 @@ export class TransactionService {
     }
 
     /**
-     * @param hash The hash of the transaction
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns TxInfoObject Successful operation
      * @throws ApiError
      */
-    public static getTransactionInfoByHash(
+    public static getTransactionInfoByHash({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the transaction
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<TxInfoObject> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<TxInfoObject> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/transactions/{hash}/info',
@@ -71,15 +85,22 @@ export class TransactionService {
 
     /**
      * Post a new transaction
-     * @param requestBody The new transaction
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns PostTxResponse Successful operation
      * @throws ApiError
      */
-    public static postTransaction(
+    public static postTransaction({
+        requestBody,
+        intAsString = false,
+    }: {
+        /**
+         * The new transaction
+         */
         requestBody: EncodedTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<PostTxResponse> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<PostTxResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/transactions',
@@ -96,15 +117,22 @@ export class TransactionService {
 
     /**
      * Get a spend transaction object
-     * @param requestBody A spend transaction
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postSpend(
+    public static postSpend({
+        requestBody,
+        intAsString = false,
+    }: {
+        /**
+         * A spend transaction
+         */
         requestBody: SpendTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/transactions/spend',
@@ -122,13 +150,17 @@ export class TransactionService {
 
     /**
      * Get pending transactions
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns SignedTxs Successful operation
      * @throws ApiError
      */
-    public static getPendingTransactions(
-        intAsString: boolean = false,
-    ): CancelablePromise<SignedTxs> {
+    public static getPendingTransactions({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<SignedTxs> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/debug/transactions/pending',
@@ -140,15 +172,22 @@ export class TransactionService {
 
     /**
      * Get a paying-for transaction object
-     * @param requestBody A paying-for transaction
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postPayingFor(
+    public static postPayingFor({
+        requestBody,
+        intAsString = false,
+    }: {
+        /**
+         * A paying-for transaction
+         */
         requestBody: PayingForTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/transactions/paying-for',

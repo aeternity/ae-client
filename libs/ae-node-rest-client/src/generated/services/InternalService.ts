@@ -46,13 +46,17 @@ export class InternalService {
 
     /**
      * Post a mined key block
-     * @param requestBody Mined key block
      * @returns any Successful operation
      * @throws ApiError
      */
-    public static postKeyBlock(
+    public static postKeyBlock({
+        requestBody,
+    }: {
+        /**
+         * Mined key block
+         */
         requestBody: KeyBlock,
-    ): CancelablePromise<any> {
+    }): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/key-blocks',
@@ -66,13 +70,17 @@ export class InternalService {
 
     /**
      * Get detailed analytics on peers
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns NetworkStatus Successful operation
      * @throws ApiError
      */
-    public static getNetworkStatus(
-        intAsString: boolean = false,
-    ): CancelablePromise<NetworkStatus> {
+    public static getNetworkStatus({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<NetworkStatus> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/debug/network',
@@ -87,15 +95,19 @@ export class InternalService {
 
     /**
      * Get a contract_create transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns CreateContractUnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postContractCreate(
+    public static postContractCreate({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ContractCreateTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<CreateContractUnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<CreateContractUnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/contracts/create',
@@ -113,15 +125,19 @@ export class InternalService {
 
     /**
      * Get a contract_call transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postContractCall(
+    public static postContractCall({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ContractCallTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/contracts/call',
@@ -139,15 +155,19 @@ export class InternalService {
 
     /**
      * Get a oracle_register transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postOracleRegister(
+    public static postOracleRegister({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: OracleRegisterTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/oracles/register',
@@ -165,15 +185,19 @@ export class InternalService {
 
     /**
      * Get an oracle_extend transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postOracleExtend(
+    public static postOracleExtend({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: OracleExtendTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/oracles/extend',
@@ -191,15 +215,19 @@ export class InternalService {
 
     /**
      * Get an oracle_query transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postOracleQuery(
+    public static postOracleQuery({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: OracleQueryTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/oracles/query',
@@ -217,15 +245,19 @@ export class InternalService {
 
     /**
      * Get an oracle_response transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postOracleRespond(
+    public static postOracleRespond({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: OracleRespondTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/oracles/respond',
@@ -243,15 +275,19 @@ export class InternalService {
 
     /**
      * Get a name_preclaim transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postNamePreclaim(
+    public static postNamePreclaim({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: NamePreclaimTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/names/preclaim',
@@ -269,15 +305,19 @@ export class InternalService {
 
     /**
      * Get a name_claim transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postNameClaim(
+    public static postNameClaim({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: NameClaimTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/names/claim',
@@ -295,15 +335,19 @@ export class InternalService {
 
     /**
      * Get a name_update transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postNameUpdate(
+    public static postNameUpdate({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: NameUpdateTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/names/update',
@@ -321,15 +365,19 @@ export class InternalService {
 
     /**
      * Get a name_transfer transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postNameTransfer(
+    public static postNameTransfer({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: NameTransferTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/names/transfer',
@@ -347,15 +395,19 @@ export class InternalService {
 
     /**
      * Get a name_revoke transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postNameRevoke(
+    public static postNameRevoke({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: NameRevokeTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/names/revoke',
@@ -373,15 +425,22 @@ export class InternalService {
 
     /**
      * Get a spend transaction object
-     * @param requestBody A spend transaction
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postSpend(
+    public static postSpend({
+        requestBody,
+        intAsString = false,
+    }: {
+        /**
+         * A spend transaction
+         */
         requestBody: SpendTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/transactions/spend',
@@ -399,15 +458,19 @@ export class InternalService {
 
     /**
      * Get a channel_create transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelCreate(
+    public static postChannelCreate({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelCreateTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/create',
@@ -425,15 +488,19 @@ export class InternalService {
 
     /**
      * Get a channel_deposit transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelDeposit(
+    public static postChannelDeposit({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelDepositTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/deposit',
@@ -450,15 +517,19 @@ export class InternalService {
 
     /**
      * Get a channel_withdrawal transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelWithdraw(
+    public static postChannelWithdraw({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelWithdrawTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/withdraw',
@@ -475,15 +546,19 @@ export class InternalService {
 
     /**
      * Get a channel_snapshot_solo transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelSnapshotSolo(
+    public static postChannelSnapshotSolo({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelSnapshotSoloTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/snapshot/solo',
@@ -500,15 +575,19 @@ export class InternalService {
 
     /**
      * Get a channel_set_delegates_tx transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelSetDelegates(
+    public static postChannelSetDelegates({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelSetDelegatesTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/set-delegates',
@@ -525,15 +604,19 @@ export class InternalService {
 
     /**
      * Get a channel_close_mutual transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelCloseMutual(
+    public static postChannelCloseMutual({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelCloseMutualTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/close/mutual',
@@ -550,15 +633,19 @@ export class InternalService {
 
     /**
      * Get a channel_close_solo transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelCloseSolo(
+    public static postChannelCloseSolo({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelCloseSoloTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/close/solo',
@@ -575,15 +662,19 @@ export class InternalService {
 
     /**
      * Get a channel_slash transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelSlash(
+    public static postChannelSlash({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelSlashTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/slash',
@@ -600,15 +691,19 @@ export class InternalService {
 
     /**
      * Get a channel_settle transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelSettle(
+    public static postChannelSettle({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelSettleTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/settle',
@@ -637,13 +732,17 @@ export class InternalService {
 
     /**
      * Get pending transactions
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns SignedTxs Successful operation
      * @throws ApiError
      */
-    public static getPendingTransactions(
-        intAsString: boolean = false,
-    ): CancelablePromise<SignedTxs> {
+    public static getPendingTransactions({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<SignedTxs> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/debug/transactions/pending',
@@ -655,17 +754,27 @@ export class InternalService {
 
     /**
      * Compute commitment ID for a given salt and name
-     * @param name Name
-     * @param salt Salt
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns CommitmentId Successful operation
      * @throws ApiError
      */
-    public static getCommitmentId(
+    public static getCommitmentId({
+        name,
+        salt,
+        intAsString = false,
+    }: {
+        /**
+         * Name
+         */
         name: string,
+        /**
+         * Salt
+         */
         salt: number,
-        intAsString: boolean = false,
-    ): CancelablePromise<CommitmentId> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<CommitmentId> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/debug/names/commitment-id',
@@ -697,13 +806,17 @@ export class InternalService {
 
     /**
      * Get node's public key
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns PubKey Successful operation
      * @throws ApiError
      */
-    public static getNodePubkey(
-        intAsString: boolean = false,
-    ): CancelablePromise<PubKey> {
+    public static getNodePubkey({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<PubKey> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/debug/accounts/node',
@@ -718,13 +831,17 @@ export class InternalService {
 
     /**
      * Get node Peers
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Peers successful operation
      * @throws ApiError
      */
-    public static getPeers(
-        intAsString: boolean = false,
-    ): CancelablePromise<Peers> {
+    public static getPeers({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Peers> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/debug/peers',
@@ -739,15 +856,22 @@ export class InternalService {
 
     /**
      * Dry-run transactions on top of a given block. Supports all TXs except GAMetaTx, PayingForTx and OffchainTx
-     * @param requestBody transactions
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns DryRunResults Dry-run result
      * @throws ApiError
      */
-    public static dryRunTxs(
+    public static dryRunTxs({
+        requestBody,
+        intAsString = false,
+    }: {
+        /**
+         * transactions
+         */
         requestBody: DryRunInput,
-        intAsString: boolean = false,
-    ): CancelablePromise<DryRunResults> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<DryRunResults> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/transactions/dry-run',
@@ -765,15 +889,22 @@ export class InternalService {
 
     /**
      * Get a paying-for transaction object
-     * @param requestBody A paying-for transaction
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postPayingFor(
+    public static postPayingFor({
+        requestBody,
+        intAsString = false,
+    }: {
+        /**
+         * A paying-for transaction
+         */
         requestBody: PayingForTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/transactions/paying-for',
@@ -791,15 +922,22 @@ export class InternalService {
 
     /**
      * Check if a transaction in the pool can be included in a microblock or if it is blocked by something: not enough tokens, missing nonce or something else
-     * @param hash The hash of the transaction
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns CheckTxInPoolResponse The transaction status
      * @throws ApiError
      */
-    public static getCheckTxInPool(
+    public static getCheckTxInPool({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the transaction
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<CheckTxInPoolResponse> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<CheckTxInPoolResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/debug/check-tx/pool/{hash}',
@@ -817,15 +955,22 @@ export class InternalService {
 
     /**
      * Get total token supply at height
-     * @param height The height
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns TokenSupply Total token supply at height divided in categories
      * @throws ApiError
      */
-    public static getTokenSupplyByHeight(
+    public static getTokenSupplyByHeight({
+        height,
+        intAsString = false,
+    }: {
+        /**
+         * The height
+         */
         height: number,
-        intAsString: boolean = false,
-    ): CancelablePromise<TokenSupply> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<TokenSupply> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/debug/token-supply/height/{height}',
@@ -843,13 +988,17 @@ export class InternalService {
 
     /**
      * This is a sample URI to simulate a request crash. Shall be used for test purposes only
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns TokenSupply This will never happen
      * @throws ApiError
      */
-    public static getCrashRequest(
-        intAsString: boolean = false,
-    ): CancelablePromise<TokenSupply> {
+    public static getCrashRequest({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<TokenSupply> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/debug/crash',
@@ -864,13 +1013,17 @@ export class InternalService {
 
     /**
      * Delete a pending transaction from the mempool
-     * @param hash The hash of the transaction
      * @returns any The transaction was deleted from the pool
      * @throws ApiError
      */
-    public static deleteTxFromMempool(
+    public static deleteTxFromMempool({
+        hash,
+    }: {
+        /**
+         * The hash of the transaction
+         */
         hash: string,
-    ): CancelablePromise<{
+    }): CancelablePromise<{
         status?: string;
     }> {
         return __request(OpenAPI, {
@@ -888,13 +1041,17 @@ export class InternalService {
 
     /**
      * Get the number of peers in the different pools. This is to be used to catch if a node loses connectivity
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns PeerCount The different count of peers in the respective pools
      * @throws ApiError
      */
-    public static getPeerCount(
-        intAsString: boolean = false,
-    ): CancelablePromise<PeerCount> {
+    public static getPeerCount({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<PeerCount> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/node/operator/peers/count',

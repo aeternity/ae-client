@@ -11,13 +11,17 @@ export class NodeOperatorService {
 
     /**
      * Delete a pending transaction from the mempool
-     * @param hash The hash of the transaction
      * @returns any The transaction was deleted from the pool
      * @throws ApiError
      */
-    public static deleteTxFromMempool(
+    public static deleteTxFromMempool({
+        hash,
+    }: {
+        /**
+         * The hash of the transaction
+         */
         hash: string,
-    ): CancelablePromise<{
+    }): CancelablePromise<{
         status?: string;
     }> {
         return __request(OpenAPI, {
@@ -35,13 +39,17 @@ export class NodeOperatorService {
 
     /**
      * Get the number of peers in the different pools. This is to be used to catch if a node loses connectivity
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns PeerCount The different count of peers in the respective pools
      * @throws ApiError
      */
-    public static getPeerCount(
-        intAsString: boolean = false,
-    ): CancelablePromise<PeerCount> {
+    public static getPeerCount({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<PeerCount> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/node/operator/peers/count',

@@ -21,15 +21,22 @@ export class ChannelService {
 
     /**
      * Get channel by public key
-     * @param pubkey The pubkey of the channel
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Channel Successful operation
      * @throws ApiError
      */
-    public static getChannelByPubkey(
+    public static getChannelByPubkey({
+        pubkey,
+        intAsString = false,
+    }: {
+        /**
+         * The pubkey of the channel
+         */
         pubkey: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<Channel> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Channel> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/channels/{pubkey}',
@@ -48,15 +55,19 @@ export class ChannelService {
 
     /**
      * Get a channel_create transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelCreate(
+    public static postChannelCreate({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelCreateTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/create',
@@ -74,15 +85,19 @@ export class ChannelService {
 
     /**
      * Get a channel_deposit transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelDeposit(
+    public static postChannelDeposit({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelDepositTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/deposit',
@@ -99,15 +114,19 @@ export class ChannelService {
 
     /**
      * Get a channel_withdrawal transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelWithdraw(
+    public static postChannelWithdraw({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelWithdrawTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/withdraw',
@@ -124,15 +143,19 @@ export class ChannelService {
 
     /**
      * Get a channel_snapshot_solo transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelSnapshotSolo(
+    public static postChannelSnapshotSolo({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelSnapshotSoloTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/snapshot/solo',
@@ -149,15 +172,19 @@ export class ChannelService {
 
     /**
      * Get a channel_set_delegates_tx transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelSetDelegates(
+    public static postChannelSetDelegates({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelSetDelegatesTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/set-delegates',
@@ -174,15 +201,19 @@ export class ChannelService {
 
     /**
      * Get a channel_close_mutual transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelCloseMutual(
+    public static postChannelCloseMutual({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelCloseMutualTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/close/mutual',
@@ -199,15 +230,19 @@ export class ChannelService {
 
     /**
      * Get a channel_close_solo transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelCloseSolo(
+    public static postChannelCloseSolo({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelCloseSoloTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/close/solo',
@@ -224,15 +259,19 @@ export class ChannelService {
 
     /**
      * Get a channel_slash transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelSlash(
+    public static postChannelSlash({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelSlashTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/slash',
@@ -249,15 +288,19 @@ export class ChannelService {
 
     /**
      * Get a channel_settle transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postChannelSettle(
+    public static postChannelSettle({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ChannelSettleTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/channels/settle',

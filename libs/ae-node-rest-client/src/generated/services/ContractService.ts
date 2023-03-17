@@ -17,15 +17,22 @@ export class ContractService {
 
     /**
      * Get a contract by pubkey
-     * @param pubkey Contract pubkey to get proof for
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns ContractObject Successful operation
      * @throws ApiError
      */
-    public static getContract(
+    public static getContract({
+        pubkey,
+        intAsString = false,
+    }: {
+        /**
+         * Contract pubkey to get proof for
+         */
         pubkey: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<ContractObject> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<ContractObject> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/contracts/{pubkey}',
@@ -44,15 +51,22 @@ export class ContractService {
 
     /**
      * Get contract code by pubkey
-     * @param pubkey Contract pubkey to get proof for
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns ByteCode Contract code
      * @throws ApiError
      */
-    public static getContractCode(
+    public static getContractCode({
+        pubkey,
+        intAsString = false,
+    }: {
+        /**
+         * Contract pubkey to get proof for
+         */
         pubkey: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<ByteCode> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<ByteCode> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/contracts/{pubkey}/code',
@@ -71,15 +85,22 @@ export class ContractService {
 
     /**
      * Get a proof of inclusion for a contract
-     * @param pubkey Contract pubkey to get proof for
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns PoI Successful operation
      * @throws ApiError
      */
-    public static getContractPoI(
+    public static getContractPoI({
+        pubkey,
+        intAsString = false,
+    }: {
+        /**
+         * Contract pubkey to get proof for
+         */
         pubkey: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<PoI> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<PoI> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/contracts/{pubkey}/poi',
@@ -98,15 +119,19 @@ export class ContractService {
 
     /**
      * Get a contract_create transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns CreateContractUnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postContractCreate(
+    public static postContractCreate({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ContractCreateTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<CreateContractUnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<CreateContractUnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/contracts/create',
@@ -124,15 +149,19 @@ export class ContractService {
 
     /**
      * Get a contract_call transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postContractCall(
+    public static postContractCall({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: ContractCallTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/contracts/call',

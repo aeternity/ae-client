@@ -14,21 +14,11 @@ export type Account = {
      * Payable
      */
     payable?: boolean;
-    kind?: Account.kind;
+    kind?: 'basic' | 'generalized';
     contract_id?: EncodedPubkey;
     /**
      * Name of authorization function for generalized account
      */
     auth_fun?: string;
 };
-
-export namespace Account {
-
-    export enum kind {
-        BASIC = 'basic',
-        GENERALIZED = 'generalized',
-    }
-
-
-}
 

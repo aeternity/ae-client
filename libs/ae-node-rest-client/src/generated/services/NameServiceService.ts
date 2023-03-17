@@ -18,15 +18,22 @@ export class NameServiceService {
 
     /**
      * Get name entry from naming system
-     * @param name The name key of the name entry
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns NameEntry Successful operation
      * @throws ApiError
      */
-    public static getNameEntryByName(
+    public static getNameEntryByName({
+        name,
+        intAsString = false,
+    }: {
+        /**
+         * The name key of the name entry
+         */
         name: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<NameEntry> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<NameEntry> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/names/{name}',
@@ -45,15 +52,19 @@ export class NameServiceService {
 
     /**
      * Get a name_preclaim transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postNamePreclaim(
+    public static postNamePreclaim({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: NamePreclaimTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/names/preclaim',
@@ -71,15 +82,19 @@ export class NameServiceService {
 
     /**
      * Get a name_claim transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postNameClaim(
+    public static postNameClaim({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: NameClaimTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/names/claim',
@@ -97,15 +112,19 @@ export class NameServiceService {
 
     /**
      * Get a name_update transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postNameUpdate(
+    public static postNameUpdate({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: NameUpdateTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/names/update',
@@ -123,15 +142,19 @@ export class NameServiceService {
 
     /**
      * Get a name_transfer transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postNameTransfer(
+    public static postNameTransfer({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: NameTransferTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/names/transfer',
@@ -149,15 +172,19 @@ export class NameServiceService {
 
     /**
      * Get a name_revoke transaction object
-     * @param requestBody
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns UnsignedTx Successful operation
      * @throws ApiError
      */
-    public static postNameRevoke(
+    public static postNameRevoke({
+        requestBody,
+        intAsString = false,
+    }: {
         requestBody: NameRevokeTx,
-        intAsString: boolean = false,
-    ): CancelablePromise<UnsignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<UnsignedTx> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/debug/names/revoke',
@@ -175,17 +202,27 @@ export class NameServiceService {
 
     /**
      * Compute commitment ID for a given salt and name
-     * @param name Name
-     * @param salt Salt
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns CommitmentId Successful operation
      * @throws ApiError
      */
-    public static getCommitmentId(
+    public static getCommitmentId({
+        name,
+        salt,
+        intAsString = false,
+    }: {
+        /**
+         * Name
+         */
         name: string,
+        /**
+         * Salt
+         */
         salt: number,
-        intAsString: boolean = false,
-    ): CancelablePromise<CommitmentId> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<CommitmentId> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/debug/names/commitment-id',

@@ -20,13 +20,17 @@ export class ChainService {
 
     /**
      * Get the top header (either key or micro block)
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Header Successful operation
      * @throws ApiError
      */
-    public static getTopHeader(
-        intAsString: boolean = false,
-    ): CancelablePromise<Header> {
+    public static getTopHeader({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Header> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/headers/top',
@@ -41,13 +45,17 @@ export class ChainService {
 
     /**
      * Get the current key block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns KeyBlock Successful operation
      * @throws ApiError
      */
-    public static getCurrentKeyBlock(
-        intAsString: boolean = false,
-    ): CancelablePromise<KeyBlock> {
+    public static getCurrentKeyBlock({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<KeyBlock> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/key-blocks/current',
@@ -62,13 +70,17 @@ export class ChainService {
 
     /**
      * Get the hash of the current key block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns HashResponse Successful operation
      * @throws ApiError
      */
-    public static getCurrentKeyBlockHash(
-        intAsString: boolean = false,
-    ): CancelablePromise<HashResponse> {
+    public static getCurrentKeyBlockHash({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<HashResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/key-blocks/current/hash',
@@ -83,13 +95,17 @@ export class ChainService {
 
     /**
      * Get the height of the current key block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns HeightResponse Successful operation
      * @throws ApiError
      */
-    public static getCurrentKeyBlockHeight(
-        intAsString: boolean = false,
-    ): CancelablePromise<HeightResponse> {
+    public static getCurrentKeyBlockHeight({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<HeightResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/key-blocks/current/height',
@@ -104,13 +120,17 @@ export class ChainService {
 
     /**
      * Get the pending key block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns KeyBlock Successful operation
      * @throws ApiError
      */
-    public static getPendingKeyBlock(
-        intAsString: boolean = false,
-    ): CancelablePromise<KeyBlock> {
+    public static getPendingKeyBlock({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<KeyBlock> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/key-blocks/pending',
@@ -126,15 +146,22 @@ export class ChainService {
 
     /**
      * Get a key block by hash
-     * @param hash The hash of the block - either a keyblock or a microblock
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns KeyBlock Successful operation
      * @throws ApiError
      */
-    public static getKeyBlockByHash(
+    public static getKeyBlockByHash({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the block - either a keyblock or a microblock
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<KeyBlock> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<KeyBlock> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/key-blocks/hash/{hash}',
@@ -153,15 +180,22 @@ export class ChainService {
 
     /**
      * Get a key block by height
-     * @param height The height
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns KeyBlock Successful operation
      * @throws ApiError
      */
-    public static getKeyBlockByHeight(
+    public static getKeyBlockByHeight({
+        height,
+        intAsString = false,
+    }: {
+        /**
+         * The height
+         */
         height: number,
-        intAsString: boolean = false,
-    ): CancelablePromise<KeyBlock> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<KeyBlock> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/key-blocks/height/{height}',
@@ -179,15 +213,22 @@ export class ChainService {
 
     /**
      * Get a micro block header by hash
-     * @param hash The hash of the block - either a keyblock or a microblock
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns MicroBlockHeader Successful operation
      * @throws ApiError
      */
-    public static getMicroBlockHeaderByHash(
+    public static getMicroBlockHeaderByHash({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the block - either a keyblock or a microblock
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<MicroBlockHeader> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<MicroBlockHeader> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/micro-blocks/hash/{hash}/header',
@@ -206,15 +247,22 @@ export class ChainService {
 
     /**
      * Get micro block transactions by hash
-     * @param hash The hash of the micro block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns SignedTxs Successful operation
      * @throws ApiError
      */
-    public static getMicroBlockTransactionsByHash(
+    public static getMicroBlockTransactionsByHash({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the micro block
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<SignedTxs> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<SignedTxs> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/micro-blocks/hash/{hash}/transactions',
@@ -233,17 +281,27 @@ export class ChainService {
 
     /**
      * Get a micro block transaction by hash and index
-     * @param hash The hash of the micro block
-     * @param index The index of the transaction in a block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns SignedTx Successful operation
      * @throws ApiError
      */
-    public static getMicroBlockTransactionByHashAndIndex(
+    public static getMicroBlockTransactionByHashAndIndex({
+        hash,
+        index,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the micro block
+         */
         hash: string,
+        /**
+         * The index of the transaction in a block
+         */
         index: number,
-        intAsString: boolean = false,
-    ): CancelablePromise<SignedTx> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<SignedTx> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/micro-blocks/hash/{hash}/transactions/index/{index}',
@@ -263,15 +321,22 @@ export class ChainService {
 
     /**
      * Get micro block transaction count by hash
-     * @param hash The hash of the micro block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns CountResponse Successful operation
      * @throws ApiError
      */
-    public static getMicroBlockTransactionsCountByHash(
+    public static getMicroBlockTransactionsCountByHash({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the micro block
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<CountResponse> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<CountResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/micro-blocks/hash/{hash}/transactions/count',
@@ -290,13 +355,17 @@ export class ChainService {
 
     /**
      * Get the current generation
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Generation Successful operation
      * @throws ApiError
      */
-    public static getCurrentGeneration(
-        intAsString: boolean = false,
-    ): CancelablePromise<Generation> {
+    public static getCurrentGeneration({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Generation> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/generations/current',
@@ -311,15 +380,22 @@ export class ChainService {
 
     /**
      * Get a generation by hash
-     * @param hash The hash of the key block
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Generation Successful operation
      * @throws ApiError
      */
-    public static getGenerationByHash(
+    public static getGenerationByHash({
+        hash,
+        intAsString = false,
+    }: {
+        /**
+         * The hash of the key block
+         */
         hash: string,
-        intAsString: boolean = false,
-    ): CancelablePromise<Generation> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Generation> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/generations/hash/{hash}',
@@ -338,15 +414,22 @@ export class ChainService {
 
     /**
      * Get a generation by height
-     * @param height The height
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns Generation Successful operation
      * @throws ApiError
      */
-    public static getGenerationByHeight(
+    public static getGenerationByHeight({
+        height,
+        intAsString = false,
+    }: {
+        /**
+         * The height
+         */
         height: number,
-        intAsString: boolean = false,
-    ): CancelablePromise<Generation> {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Generation> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/generations/height/{height}',
@@ -364,13 +447,17 @@ export class ChainService {
 
     /**
      * Get oldest keyblock hashes counting from genesis including orphans
-     * @param intAsString If this flag is set to true, the response will have all integers set as strings
      * @returns EncodedHash Successful operation
      * @throws ApiError
      */
-    public static getChainEnds(
-        intAsString: boolean = false,
-    ): CancelablePromise<Array<EncodedHash>> {
+    public static getChainEnds({
+        intAsString = false,
+    }: {
+        /**
+         * If this flag is set to true, the response will have all integers set as strings
+         */
+        intAsString?: boolean,
+    }): CancelablePromise<Array<EncodedHash>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/status/chain-ends',
@@ -382,13 +469,17 @@ export class ChainService {
 
     /**
      * Post a mined key block
-     * @param requestBody Mined key block
      * @returns any Successful operation
      * @throws ApiError
      */
-    public static postKeyBlock(
+    public static postKeyBlock({
+        requestBody,
+    }: {
+        /**
+         * Mined key block
+         */
         requestBody: KeyBlock,
-    ): CancelablePromise<any> {
+    }): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/key-blocks',
