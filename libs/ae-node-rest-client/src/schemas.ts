@@ -37,4 +37,9 @@ export const AccountInfo = z.object({
   auth_fun: z.string().optional(),
   contract_id: ContractAddr.optional(),
 });
-export type GeneralizedAccInfo = z.infer<typeof AccountInfo>;
+export type AccountInfo = z.infer<typeof AccountInfo>;
+
+export const NodeStatus = z.object({
+  network_id: z.string(),
+  node_version: z.string(),
+});
