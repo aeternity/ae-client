@@ -1,6 +1,4 @@
 import axios, { AxiosResponse, Method } from "axios";
-import { AccountInfo } from "./schemas";
-import { z } from "zod";
 
 export async function aeAxiosRequest(
   url: string,
@@ -39,30 +37,9 @@ export async function aeAxiosRequest(
   return resp;
 }
 
-function throwUnexpectedResponseError(resp: AxiosResponse): never {
+export function throwUnexpectedResponseError(resp: AxiosResponse): never {
   console.error(resp.data);
   throw new Error(
     `Unexpected status code ${resp.status} from ${resp.config.url}`
   );
-}
-
-export function parseAccountResponse(resp: AxiosResponse) {
-  if (resp.status === 404) {
-    return null;
-  } else if (resp.status == 200) {
-    return AccountInfo.parse(resp.data);
-  } else {
-    return throwUnexpectedResponseError(resp);
-  }
-}
-
-export function parseNextNonce(resp: AxiosResponse) {
-  if (resp.status === 200) {
-    return z.object({ next_nonce: z.coerce.bigint() }).parse(resp.data)
-      .next_nonce;
-  } else if (resp.status === 404) {
-    return null;
-  } else {
-    return throwUnexpectedResponseError(resp);
-  }
 }
