@@ -4,7 +4,7 @@ import { AxiosResponse } from "axios";
 import { z, ZodObject, ZodRawShape } from "zod";
 import { throwUnexpectedResponseError } from "../axiosUtils";
 
-const parseHttpResponse = <T extends ZodRawShape>(
+export const parseAccountResponse = <T extends ZodRawShape>(
   resp: AxiosResponse,
   decoder: ZodObject<T>
 ) => {
@@ -32,7 +32,7 @@ export const getAccountInfo = async (
   pubKey: AccountPubKey
 ) => {
   const resp = await client.call("GET", `/accounts/${pubKey}`);
-  return parseHttpResponse(resp, AccountInfo);
+  return parseAccountResponse(resp, AccountInfo);
 };
 
 const NextNonceResp = z.object({ next_nonce: z.coerce.bigint() });
@@ -41,8 +41,8 @@ export const getNextNonce = async (
   pubKey: AccountPubKey,
   strategy?: "max" | "continuity"
 ) => {
-  const data = { strategy: strategy ? strategy : "max" };
-  const resp = await client.call("GET", `/accounts/${pubKey}/next-nonce`, data);
-  const nonceResp = parseHttpResponse(resp, NextNonceResp);
+  const qs = { strategy: strategy ? strategy : "max" };
+  const resp = await client.call("GET", `/accounts/${pubKey}/next-nonce`, qs);
+  const nonceResp = parseAccountResponse(resp, NextNonceResp);
   return nonceResp && nonceResp.next_nonce;
 };
