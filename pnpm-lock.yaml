@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 importers:
 
-  aepps/ae-client-playground:
+  apps/ae-client-playground:
     specifiers:
       '@types/compression': ^1.7.2
       '@types/express': ^4.17.14
