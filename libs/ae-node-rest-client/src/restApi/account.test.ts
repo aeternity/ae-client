@@ -1,5 +1,6 @@
 import { getAccountInfo, getNextNonce } from "./account";
 import { createClient } from "../restClient";
+import { expect, test } from "@jest/globals";
 
 const testNetCl = createClient("testnet");
 const mainNetCl = createClient("mainnet");

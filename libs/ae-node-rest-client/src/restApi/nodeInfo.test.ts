@@ -1,5 +1,6 @@
 import { getNodeStatus } from "./nodeInfo";
 import { createClient } from "../restClient";
+import { expect, test } from "@jest/globals";
 
 test("NodeStatus", async () => {
   const mainNetByUrlCl = createClient("https://mainnet.aeternity.io/v3");
