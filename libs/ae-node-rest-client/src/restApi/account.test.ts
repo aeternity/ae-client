@@ -19,12 +19,10 @@ test("AccountNotFound", async () => {
 });
 test("getAccountInfo", async () => {
   const account = await getAccountInfo(testNetCl, ak);
-  // console.log("account", account);
   expect(account?.id).toBe(ak);
 });
 
 test("getNextNonce", async () => {
-  // console.log("returned nonce", nonce);
   expect(await getNextNonce(testNetCl, ak)).toBeGreaterThan(0n);
   expect(await getNextNonce(testNetCl, ak, "continuity")).toBeGreaterThan(0n);
 });

@@ -1,12 +1,12 @@
 import { AeNodeRestClient } from "../restClient";
 import { AccountPubKey, ContractAddr } from "../basicTypes";
 import { AxiosResponse } from "axios";
-import { z, ZodObject, ZodRawShape } from "zod";
+import { z } from "zod";
 import { throwUnexpectedResponseError } from "../axiosUtils";
 
-export const parseAccountResponse = <T extends ZodRawShape>(
+export const parseAccountResponse = <T extends z.ZodTypeAny>(
   resp: AxiosResponse,
-  decoder: ZodObject<T>
+  decoder: T
 ) => {
   if (resp.status === 200) {
     return decoder.parse(resp.data);
@@ -30,7 +30,7 @@ export type AccountInfo = z.infer<typeof AccountInfo>;
 export const getAccountInfo = async (
   client: AeNodeRestClient,
   pubKey: AccountPubKey
-) => {
+): Promise<AccountInfo | null> => {
   const resp = await client.call("GET", `/accounts/${pubKey}`);
   return parseAccountResponse(resp, AccountInfo);
 };
