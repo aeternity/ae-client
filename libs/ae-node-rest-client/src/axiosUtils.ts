@@ -1,4 +1,5 @@
 import axios, { AxiosResponse, Method } from "axios";
+import { z } from "zod";
 
 export async function aeAxiosRequest(
   url: string,
@@ -43,3 +44,19 @@ export function throwUnexpectedResponseError(resp: AxiosResponse): never {
     `Unexpected status code ${resp.status} from ${resp.config.url}`
   );
 }
+
+// This function is used when it's OK for the response to be 404 Not Found.
+// In that case, the function returns null.
+// If the requested resource is found, the function returns the parsed (via Zod) response.
+export const parseNullableResponse = <T extends z.ZodTypeAny>(
+  resp: AxiosResponse,
+  decoder: T
+) => {
+  if (resp.status === 200) {
+    return decoder.parse(resp.data);
+  } else if (resp.status === 404) {
+    return null;
+  } else {
+    return throwUnexpectedResponseError(resp);
+  }
+};

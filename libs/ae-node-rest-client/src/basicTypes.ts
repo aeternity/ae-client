@@ -1,7 +1,6 @@
 import { z } from "zod";
 import aecalldata from "@aeternity/aepp-calldata";
 
-// @ts-ignore
 const decoder = new aecalldata.FateApiEncoder();
 
 function aecalldataValid(s: string) {
@@ -27,3 +26,16 @@ export const ContractAddr = z.custom<`ct_${string}`>(
   (v) => typeof v === "string" && v.startsWith("ct_") && aecalldataValid(v)
 );
 export type ContractAddr = z.infer<typeof ContractAddr>;
+
+export const MicroBlockHash = z.custom<`mh_${string}`>(
+  (v) => typeof v === "string" && v.startsWith("mh_") && aecalldataValid(v)
+);
+export type MicroBlockHash = z.infer<typeof MicroBlockHash>;
+
+export const TransactionHash = z.custom<`th_${string}`>(
+  (v) => typeof v === "string" && v.startsWith("th_") && aecalldataValid(v)
+);
+
+export const Signature = z.custom<`sg_${string}`>(
+  (v) => typeof v === "string" && v.startsWith("sg_") && aecalldataValid(v)
+);
