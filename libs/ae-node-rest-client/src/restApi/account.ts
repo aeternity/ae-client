@@ -1,21 +1,8 @@
 import { AeNodeRestClient } from "../restClient";
 import { AccountPubKey, ContractAddr } from "../basicTypes";
-import { AxiosResponse } from "axios";
 import { z } from "zod";
-import { throwUnexpectedResponseError } from "../axiosUtils";
+import { parseNullableResponse } from "../axiosUtils";
 
-export const parseAccountResponse = <T extends z.ZodTypeAny>(
-  resp: AxiosResponse,
-  decoder: T
-) => {
-  if (resp.status === 200) {
-    return decoder.parse(resp.data);
-  } else if (resp.status === 404) {
-    return null;
-  } else {
-    return throwUnexpectedResponseError(resp);
-  }
-};
 export const AccountInfo = z.object({
   id: AccountPubKey,
   balance: z.coerce.bigint(),
@@ -32,7 +19,7 @@ export const getAccountInfo = async (
   pubKey: AccountPubKey
 ): Promise<AccountInfo | null> => {
   const resp = await client.call("GET", `/accounts/${pubKey}`);
-  return parseAccountResponse(resp, AccountInfo);
+  return parseNullableResponse(resp, AccountInfo);
 };
 
 const NextNonceResp = z.object({ next_nonce: z.coerce.bigint() });
@@ -43,6 +30,6 @@ export const getNextNonce = async (
 ) => {
   const qs = { strategy: strategy ? strategy : "max" };
   const resp = await client.call("GET", `/accounts/${pubKey}/next-nonce`, qs);
-  const nonceResp = parseAccountResponse(resp, NextNonceResp);
+  const nonceResp = parseNullableResponse(resp, NextNonceResp);
   return nonceResp && nonceResp.next_nonce;
 };

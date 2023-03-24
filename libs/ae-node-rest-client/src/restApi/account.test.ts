@@ -1,6 +1,5 @@
 import { getAccountInfo, getNextNonce } from "./account";
 import { createClient } from "../restClient";
-import { expect, test } from "@jest/globals";
 
 const testNetCl = createClient("testnet");
 const mainNetCl = createClient("mainnet");
@@ -23,6 +22,6 @@ test("getAccountInfo", async () => {
 });
 
 test("getNextNonce", async () => {
-  expect(await getNextNonce(testNetCl, ak)).toBeGreaterThan(0n);
-  expect(await getNextNonce(testNetCl, ak, "continuity")).toBeGreaterThan(0n);
+  expect(await getNextNonce(testNetCl, ak)).toBeGreaterThan(0);
+  expect(await getNextNonce(testNetCl, ak, "continuity")).toBeGreaterThan(0);
 });

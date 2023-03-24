@@ -1,5 +1,4 @@
 import { AccountPubKey, ContractAddr, ContractDataEnc } from "./basicTypes";
-import { test, expect } from "@jest/globals";
 
 test("Parse Invalid Primitives", () => {
   expect(AccountPubKey.safeParse("ak_123").success).toBeFalsy();
