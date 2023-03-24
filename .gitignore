@@ -11,6 +11,8 @@ npm-debug.log*
 coverage
 
 build/
+dist/
+tsconfig.tsbuildinfo
 
 # Dependency directories
 node_modules/
