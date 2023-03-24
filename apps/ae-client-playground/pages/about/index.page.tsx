@@ -1,7 +1,6 @@
-import React from 'react'
-import './code.css'
+import React from "react";
 
-export { Page }
+export { Page };
 
 function Page() {
   return (
@@ -11,5 +10,5 @@ function Page() {
         Example of using <code>vite-plugin-ssr</code>.
       </p>
     </>
-  )
+  );
 }

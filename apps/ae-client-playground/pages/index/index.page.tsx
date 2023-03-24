@@ -1,7 +1,7 @@
-import React from 'react'
-import { Counter } from './Counter'
+import React from "react";
+import { Counter } from "./Counter";
 
-export { Page }
+export { Page };
 
 function Page() {
   return (
@@ -14,6 +14,7 @@ function Page() {
           Interactive. <Counter />
         </li>
       </ul>
+      <div className="m-4 border-2 p-2">Test box</div>
     </>
-  )
+  );
 }
