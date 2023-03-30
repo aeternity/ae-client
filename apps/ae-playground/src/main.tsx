@@ -3,25 +3,17 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-const HomePage = () => {
-  return (
-    <div>
-      <div className="">
-        <button className="btn btn-primary">test button</button>
-      </div>
-      {[...Array(100).keys()].map((i: number) => (
-        <div key={i}>{i}</div>
-      ))}
-    </div>
-  );
-};
+import { HomePage } from "./pages/HomePage";
+import { FATEdecoder } from "./pages/FATEdecoder";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    children: [{ path: "/", element: <HomePage /> }],
+    children: [
+      { path: "/", element: <HomePage /> },
+      { path: "/FATE-decoder", element: <FATEdecoder /> },
+    ],
   },
 ]);
 

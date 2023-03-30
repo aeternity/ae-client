@@ -18,6 +18,24 @@ export function ToggleDrawerBtn(props: {
   );
 }
 
+function MainMenuLink(props: { to: string; text: string }) {
+  return (
+    <li className="hover-bordered">
+      <a href={props.to}>{props.text}</a>
+    </li>
+  );
+}
+
+function MainMenu() {
+  return (
+    <ul className="menu menu-vertical">
+      <MainMenuLink to={"/"} text={"Home"} />
+      <MainMenuLink to={"/about"} text={"About"} />
+      <MainMenuLink to={"/FATE-decoder"} text={"FATE Decoder"} />
+    </ul>
+  );
+}
+
 export function Layout({ children }: { children?: React.ReactNode }) {
   const [drwOpen, setDrwOpen] = useState(false);
   const toggleDrawer = () => {
@@ -34,18 +52,20 @@ export function Layout({ children }: { children?: React.ReactNode }) {
       />
       <div className="drawer-content">
         <ToggleDrawerBtn onClick={toggleDrawer} isOpen={drwOpen} />
-        {children}
+        <main className="p-2">{children}</main>
       </div>
       <div
         className={`drawer-side h-screen border-r-0 lg:border-r border-r-primary mr-0 lg:mr-1`}
       >
         <div className="drawer-overlay" onClick={toggleDrawer}></div>
-        <div className="bg-base-100 w-80 lg:w-80">
+        <div className="bg-base-100 w-64">
           <ToggleDrawerBtn onClick={toggleDrawer} isOpen={drwOpen} />
           <div className="flex justify-center h-16 ">
             <AeLogo />
           </div>
-          <div>menu here</div>
+          <div className="p-2">
+            <MainMenu />
+          </div>
         </div>
       </div>
     </div>
