@@ -1,13 +1,13 @@
 import ReactDOMServer from "react-dom/server";
 import React from "react";
 import { PageShell } from "./PageShell";
-import { escapeInject, dangerouslySkipEscape } from "vite-plugin-ssr";
 import logoUrl from "./logo.svg";
 import type { PageContextServer } from "./types";
+import { dangerouslySkipEscape, escapeInject } from "vite-plugin-ssr/server";
 
 export { render };
 // See https://vite-plugin-ssr.com/data-fetching
-export const passToClient = ["pageProps", "urlPathname"];
+export const passToClient = ["pageProps", "urlPathname", "routeParams"];
 
 async function render(pageContext: PageContextServer) {
   const { Page, pageProps } = pageContext;
