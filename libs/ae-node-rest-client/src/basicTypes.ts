@@ -12,10 +12,10 @@ function aecalldataValid(s: string) {
   }
 }
 
-export const ContractDataEnc = z.custom<`cb_${string}`>(
+export const ContractByteArray = z.custom<`cb_${string}`>(
   (v) => typeof v === "string" && v.startsWith("cb_") && aecalldataValid(v)
 );
-export type ContractDataEnc = z.infer<typeof ContractDataEnc>;
+export type ContractByteArray = z.infer<typeof ContractByteArray>;
 
 export const AccountPubKey = z.custom<`ak_${string}`>(
   (v) => typeof v === "string" && v.startsWith("ak_") && aecalldataValid(v)
@@ -35,6 +35,7 @@ export type MicroBlockHash = z.infer<typeof MicroBlockHash>;
 export const TransactionHash = z.custom<`th_${string}`>(
   (v) => typeof v === "string" && v.startsWith("th_") && aecalldataValid(v)
 );
+export type TransactionHash = z.infer<typeof TransactionHash>;
 
 export const Signature = z.custom<`sg_${string}`>(
   (v) => typeof v === "string" && v.startsWith("sg_") && aecalldataValid(v)

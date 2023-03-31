@@ -51,7 +51,7 @@ export function throwUnexpectedResponseError(resp: AxiosResponse): never {
 export const parseNullableResponse = <T extends z.ZodTypeAny>(
   resp: AxiosResponse,
   decoder: T
-) => {
+): z.infer<typeof decoder> | null => {
   if (resp.status === 200) {
     return decoder.parse(resp.data);
   } else if (resp.status === 404) {
