@@ -8,12 +8,12 @@ const decoder = new aecalldata.ContractByteArrayEncoder();
 export function FATEdecoder() {
   const [qs, setQs] = useSearchParams({ cb: "" });
   const [cbValid, setCbValid] = useState(false);
-  const [decoded, setDecoded] = useState(null);
+  const [decoded, setDecoded] = useState<any | null>(null);
 
   const onTextAreaChange = (text: string) => {
     console.log("text area change");
     setQs({ cb: text });
-    const validated = BasicTypes.ContractDataEnc.safeParse(text);
+    const validated = BasicTypes.ContractByteArray.safeParse(text);
     setCbValid(validated.success);
     if (validated.success) {
       setDecoded(decoder.decode(validated.data));

@@ -5,6 +5,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import { FATEdecoder } from "./pages/FATEdecoder";
+import { TransactionPage } from "./pages/TransactionPage";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,16 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: "/", element: <HomePage /> },
-      { path: "/FATE-decoder", element: <FATEdecoder /> },
+      {
+        path: "/CallData-decoder",
+        element: <FATEdecoder decoder={"ByteArrDecoder"} />,
+      },
+      {
+        path: "/ContractBytecode-decoder",
+        element: <FATEdecoder decoder={"ContractDecoder"} />,
+      },
+      { path: "/transactions/", element: <TransactionPage /> },
+      { path: "/transactions/:th", element: <TransactionPage /> },
     ],
   },
 ]);

@@ -31,7 +31,8 @@ function MainMenu() {
     <ul className="menu menu-vertical">
       <MainMenuLink to={"/"} text={"Home"} />
       <MainMenuLink to={"/about"} text={"About"} />
-      <MainMenuLink to={"/FATE-decoder"} text={"FATE Decoder"} />
+      <MainMenuLink to={"/CallData-decoder"} text={"CallData Decoder"} />
+      <MainMenuLink to={"/transactions"} text={"Transactions"} />
     </ul>
   );
 }
