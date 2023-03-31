@@ -9,6 +9,8 @@ import {
   TransactionHash,
 } from "../basicTypes";
 import { parseNullableResponse } from "../axiosUtils";
+import { getContractCode } from "./contract";
+import aecalldata from "@aeternity/aepp-calldata";
 
 export const Transaction = z
   .object({
@@ -75,4 +77,13 @@ export const TxInfoResponse = z.object({
 export async function getTransactionInfo(client: AeNodeRestClient, id: string) {
   const resp = await client.call("GET", `/transactions/${id}/info`);
   return parseNullableResponse(resp, TxInfoResponse);
+}
+
+export async function resolveCallData(
+  client: AeNodeRestClient,
+  tx: Transaction
+) {
+  const contractCode = await getContractCode(client, tx.contract_id);
+  const decoder = new aecalldata.BytecodeContractCallEncoder(contractCode!);
+  return decoder.decodeCall(tx.call_data);
 }

@@ -34,7 +34,7 @@ export async function aeAxiosRequest(
         throw new Error(err.message);
       }
     });
-  console.info(resp.config.url, resp.config.params);
+  // console.debug(resp.config.url, resp.config.params);
   return resp;
 }
 

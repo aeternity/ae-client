@@ -18,7 +18,7 @@
     "node": ">=10"
   },
   "dependencies": {
-    "@aeternity/aepp-calldata": "github:loxs/aepp-calldata-js#microblock_hash_support",
+    "@aeternity/aepp-calldata": "github:aeternity/aepp-calldata-js#master",
     "axios": "1.3.4",
     "buffer": "^6.0.3",
     "zod": "^3.21.4",
