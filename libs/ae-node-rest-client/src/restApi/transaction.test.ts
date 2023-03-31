@@ -1,5 +1,5 @@
 import { createClient } from "../restClient";
-import { getTransaction } from "./transaction";
+import { getTransaction, getTransactionInfo } from "./transaction";
 
 const testNetCl = createClient("testnet");
 const mainNetCl = createClient("mainnet");
@@ -11,4 +11,11 @@ test("GetTransaction", async () => {
 
   const tMainNet404 = await getTransaction(mainNetCl, th);
   expect(tMainNet404).toBeNull();
+});
+
+test("GetTransactionInfo", async () => {
+  const ti = await getTransactionInfo(testNetCl, th);
+  expect(ti.call_info.caller_id).toBe(
+    "ak_2PahBfbkrmBFfbb4FGEVErP7mChFGPYFb9eGMARU514u5V3K52"
+  );
 });
