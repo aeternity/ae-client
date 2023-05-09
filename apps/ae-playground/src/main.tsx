@@ -6,11 +6,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import { FATEdecoder } from "./pages/FATEdecoder";
 import { TransactionPage } from "./pages/TransactionPage";
+import ErrorPage from "./errorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <HomePage /> },
       {
