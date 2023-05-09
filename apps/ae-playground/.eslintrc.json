@@ -1,0 +1,41 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "react"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "arrow-body-style": [
+      "warn",
+      "as-needed"
+    ],
+    "no-param-reassign": "warn",
+    "no-return-await": "warn",
+    "no-shadow": "warn",
+    "object-shorthand": ["warn", "always"],
+    "prefer-const": "warn",
+    "react/jsx-curly-brace-presence": [
+      "warn",
+      "never"
+    ],
+    "react/no-unused-prop-types": ["warn"],
+    "react/self-closing-comp": [
+      "warn",
+      {
+        "component": true,
+        "html": true
+      }
+    ]
+  }
+}

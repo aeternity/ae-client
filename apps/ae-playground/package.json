@@ -8,6 +8,11 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
   "dependencies": {
     "ae-node-rest-client": "workspace:*",
     "@aeternity/aepp-calldata": "github:aeternity/aepp-calldata-js#master",
@@ -24,10 +29,15 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react-swc": "^3.0.0",
     "autoprefixer": "^10.4.14",
     "daisyui": "^2.51.5",
+    "eslint": "^8.37.0",
+    "eslint-plugin-react": "^7.32.2",
     "postcss": "^8.4.21",
+    "prettier": "^2.8.7",
     "tailwindcss": "^3.2.7",
     "typescript": "^4.9.3",
     "vite": "^4.2.0"
