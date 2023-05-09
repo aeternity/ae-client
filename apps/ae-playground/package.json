@@ -14,32 +14,32 @@
     ]
   },
   "dependencies": {
-    "ae-node-rest-client": "workspace:*",
     "@aeternity/aepp-calldata": "github:aeternity/aepp-calldata-js#master",
-    "@fortawesome/fontawesome-svg-core": "^6.3.0",
-    "@fortawesome/free-brands-svg-icons": "^6.3.0",
-    "@fortawesome/free-regular-svg-icons": "^6.3.0",
-    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "ae-node-rest-client": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.9.0"
+    "react-router-dom": "^6.11.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.57.1",
-    "@typescript-eslint/parser": "^5.57.1",
-    "@vitejs/plugin-react-swc": "^3.0.0",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "@typescript-eslint/eslint-plugin": "^5.59.5",
+    "@typescript-eslint/parser": "^5.59.5",
+    "@vitejs/plugin-react-swc": "^3.3.1",
     "autoprefixer": "^10.4.14",
-    "daisyui": "^2.51.5",
-    "eslint": "^8.37.0",
+    "daisyui": "^2.51.6",
+    "eslint": "^8.40.0",
     "eslint-plugin-react": "^7.32.2",
-    "postcss": "^8.4.21",
-    "prettier": "^2.8.7",
-    "tailwindcss": "^3.2.7",
-    "typescript": "^4.9.3",
-    "vite": "^4.2.0"
+    "postcss": "^8.4.23",
+    "prettier": "^2.8.8",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.5"
   }
 }
